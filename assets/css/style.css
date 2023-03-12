@@ -1,0 +1,85 @@
+/* Overall styling */
+
+:root {
+	--accent-color: darkorchid;
+}
+
+body {
+	background-color: lightgray;
+}
+
+/* Header styling */
+
+header {
+	padding: 20px;
+	font-size: 110%;
+}
+
+.header-left {
+	float: left;
+	color: var(--accent-color);
+}
+
+.header-right {
+	float: right;
+}
+
+/* General screen styling */
+
+main {
+	width: 50%;
+	margin: 40px auto;
+}
+
+/* Main screen styling */
+
+#start-screen {
+	text-align: center;
+}
+
+#start-screen h1 {
+	font-size: 200%;
+	margin-bottom: 20px;
+}
+
+#start-screen button {
+	margin-top: 20px;
+	padding: 5px;
+	background-color: var(--accent-color);
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+/* Question screen styling */
+
+#question-screen h2 {
+	font-size: 175%;
+	margin-bottom: 20px;
+}
+
+#question-list li {
+	background-color: var(--accent-color);
+	color: white;
+	width: fit-content;
+	padding: 5px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+#question-list li:hover {
+	background-color: lightcoral;
+}
+
+/* End screen styling */
+
+/* Question response styling (Wrong/Right, can appear in question and end screen) */
+
+#question-response {
+	margin-top: 15px;
+	padding-top: 5px;
+	border-top: 1px solid gray;
+	font-style: italic;
+}
