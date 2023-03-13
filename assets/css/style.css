@@ -2,6 +2,7 @@
 
 :root {
 	--accent-color: darkorchid;
+	--accent-hover: lightcoral;
 }
 
 body {
@@ -20,6 +21,10 @@ header {
 	color: var(--accent-color);
 }
 
+.header-left a {
+	text-decoration: none;
+}
+
 .header-right {
 	float: right;
 }
@@ -28,7 +33,24 @@ header {
 
 main {
 	width: 50%;
-	margin: 40px auto;
+	margin: 60px auto;
+}
+
+.hidden {
+	display: none;
+}
+
+.btn-purple {
+	padding: 5px;
+	background-color: var(--accent-color);
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.btn-purple:hover {
+	background-color: var(--accent-hover);
 }
 
 /* Main screen styling */
@@ -44,11 +66,6 @@ main {
 
 #start-screen button {
 	margin-top: 20px;
-	padding: 5px;
-	background-color: var(--accent-color);
-	color: white;
-	border-radius: 10px;
-	cursor: pointer;
 }
 
 /* Question screen styling */
@@ -59,21 +76,16 @@ main {
 }
 
 #question-list li {
-	background-color: var(--accent-color);
-	color: white;
 	width: fit-content;
-	padding: 5px;
 	margin-bottom: 10px;
-	border-radius: 10px;
-	cursor: pointer;
-	transition: 0.2s;
-}
-
-#question-list li:hover {
-	background-color: lightcoral;
 }
 
 /* End screen styling */
+
+#end-screen h2 {
+	font-size: 175%;
+	margin-bottom: 15px;
+}
 
 /* Question response styling (Wrong/Right, can appear in question and end screen) */
 
