@@ -12,6 +12,28 @@ var questionResponseEl = document.getElementById('question-response')
 
 // Data
 var maxTime = 75
+var questionList = [
+	{
+		title: 'Arrays in JavaScript can be used to store _____.',
+		choices: ['numbers and strings', 'other arrays', 'booleans', 'all of the above'],
+		correctChoiceIndex: 3,
+	},
+	{
+		title: 'A very useful tool used during development and debugging for printing content to the debugger is:',
+		choices: ['JavaScript', 'terminal/bash', 'console.log()', 'for loops'],
+		correctChoiceIndex: 2,
+	},
+	{
+		title: 'Commonly used data types DO NOT include:',
+		choices: ['strings', 'booleans', 'alerts', 'numbers'],
+		correctChoiceIndex: 3,
+	},
+	{
+		title: 'The condition in an if/else statement is enclosed in _____.',
+		choices: ['quotes', 'parentheses', 'curly brackets', 'square brackets'],
+		correctChoiceIndex: 1,
+	},
+]
 
 // Changing Data
 var currentTime = maxTime
