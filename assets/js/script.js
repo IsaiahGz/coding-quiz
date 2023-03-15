@@ -9,6 +9,7 @@ var endScreenEl = document.getElementById('end-screen')
 var finalScoreNumberEl = document.getElementById('final-score')
 var initialsInputEl = document.getElementById('initials')
 var questionResponseEl = document.getElementById('question-response')
+var submitBtnEl = document.getElementById('submit-btn')
 
 // Data
 var maxTime = 75
@@ -100,9 +101,26 @@ function getNextQuestionAndDisplay() {
 			// Check if li isn't the correct choice. If so reduce time.
 			if (i !== question.correctChoiceIndex) {
 				currentTime -= 10
+				wasAnswerCorrect(false)
+			} else {
+				wasAnswerCorrect(true)
 			}
 			getNextQuestionAndDisplay()
 		})
 		questionListEl.appendChild(newLi)
 	}
+}
+
+// Functions that displays if the choice was answered correctly
+function wasAnswerCorrect(correct) {
+	if (correct) {
+		questionResponseEl.textContent = 'Correct!'
+	} else {
+		questionResponseEl.textContent = 'Wrong!'
+	}
+	questionResponseEl.classList.remove('hidden')
+	// Display this for .6 seconds
+	setTimeout(function () {
+		questionResponseEl.classList.add('hidden')
+	}, 600)
 }
