@@ -65,8 +65,3 @@ section h1 {
 .btn-purple:hover {
 	background-color: var(--accent-hover);
 }
-
-#back-btn a {
-	text-decoration: none;
-	color: white;
-}
