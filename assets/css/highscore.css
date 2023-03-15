@@ -1,0 +1,43 @@
+/* Overall styling */
+
+:root {
+	--accent-color: darkorchid;
+	--accent-light: rgb(159, 206, 219);
+	--accent-light-two: rgb(150, 151, 230);
+	--accent-hover: lightcoral;
+}
+
+body {
+	background-color: lightgray;
+}
+
+/* Section styling */
+section {
+	margin: 12vh auto;
+	width: 50%;
+	min-width: 450px;
+}
+
+section h1 {
+	font-size: 200%;
+}
+
+/* List styling */
+
+#highscore-list {
+	margin: 10px auto;
+}
+
+#highscore-list li {
+	margin-bottom: 10px;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+#highscore-list li:nth-child(even) {
+	background-color: var(--accent-light);
+}
+
+#highscore-list li:nth-child(odd) {
+	background-color: var(--accent-light-two);
+}
