@@ -1,11 +1,12 @@
 // Get elements
 var highscoreListEl = document.querySelector('#highscore-list')
 var clearHighscoreBtnEl = document.querySelector('#clear-highscore')
+var hiddenMessageEl = document.querySelector('#hidden-display')
 
 // Get localstorage
 var highscoreLocalStorage = localStorage.getItem('highscores')
 
-if (highscoreLocalStorage) {
+if (highscoreLocalStorage && highscoreLocalStorage !== '[]') {
 	highscoreLocalStorage = JSON.parse(highscoreLocalStorage)
 	// Sort the array
 	highscoreLocalStorage.sort(function (a, b) {
@@ -20,7 +21,8 @@ if (highscoreLocalStorage) {
 		highscoreListEl.appendChild(newLi)
 	}
 } else {
-	// There are no highscores in local storage
+	// There are no highscores in local storage, display message
+	hiddenMessageEl.classList.remove('hidden')
 }
 
 // Event listener
