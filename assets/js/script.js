@@ -52,6 +52,33 @@ startQuizBtnEl.addEventListener('click', function () {
 	getNextQuestionAndDisplay()
 })
 
+submitBtnEl.addEventListener('click', function () {
+	// Get initials
+	var initials = initialsInputEl.value.trim()
+	console.log(initials)
+	if (!initials) {
+		// No initials provided, don't submit
+		return
+	}
+	var newHighscore = {
+		initials,
+		score: Math.floor(currentTime),
+	}
+	var currentHighscoreArr = localStorage.getItem('highscores')
+	if (!currentHighscoreArr) {
+		// First highscore
+		currentHighscoreArr = [newHighscore]
+	} else {
+		// 2 or more highscores already exist, add new highscore
+		currentHighscoreArr = JSON.parse(currentHighscoreArr)
+		currentHighscoreArr.push(newHighscore)
+	}
+	// Set highscore array in localstorage
+	localStorage.setItem('highscores', JSON.stringify(currentHighscoreArr))
+	// Switch to highscore page
+	window.location.href = './highscore.html'
+})
+
 // Game timer (runs every 100 ms)
 function gameTimerHandle() {
 	// Reduce time
