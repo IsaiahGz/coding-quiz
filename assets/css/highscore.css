@@ -41,3 +41,23 @@ section h1 {
 #highscore-list li:nth-child(odd) {
 	background-color: var(--accent-light-two);
 }
+
+/* Button styling */
+
+.btn-purple {
+	padding: 5px;
+	background-color: var(--accent-color);
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.btn-purple:hover {
+	background-color: var(--accent-hover);
+}
+
+#back-btn a {
+	text-decoration: none;
+	color: white;
+}
