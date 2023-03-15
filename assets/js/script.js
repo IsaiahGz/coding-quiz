@@ -26,7 +26,7 @@ var questionList = [
 	{
 		title: 'Commonly used data types DO NOT include:',
 		choices: ['strings', 'booleans', 'alerts', 'numbers'],
-		correctChoiceIndex: 3,
+		correctChoiceIndex: 2,
 	},
 	{
 		title: 'The condition in an if/else statement is enclosed in _____.',
@@ -38,14 +38,17 @@ var questionList = [
 // Changing Data
 var currentTime = maxTime
 var gameTimerId = 0
+var currentQuestionIndex = -1
 
 // Event listeners
 startQuizBtnEl.addEventListener('click', function () {
-	// Start the game
-	gameTimerId = setInterval(gameTimerHandle, 100)
 	// Switch from start-screen to question-screen
 	startScreenEl.classList.add('hidden')
 	questionScreenEl.classList.remove('hidden')
+
+	// Start the game
+	gameTimerId = setInterval(gameTimerHandle, 100)
+	getNextQuestionAndDisplay()
 })
 
 // Game timer (runs every 100 ms)
@@ -57,15 +60,49 @@ function gameTimerHandle() {
 		currentTime = 0 // Don't allow negative time left
 		endGame()
 	}
-	timerEl.textContent = Math.floor(currentTime)
+	updateTimerUi()
 }
 
 // Functions
+function updateTimerUi() {
+	timerEl.textContent = Math.floor(currentTime)
+}
+
 function endGame() {
 	clearInterval(gameTimerId)
 	// Switch from question screen to end screen
 	questionScreenEl.classList.add('hidden')
 	endScreenEl.classList.remove('hidden')
 	// Set final score to time left
-	finalScoreNumberEl.textContent = currentTime
+	updateTimerUi()
+	finalScoreNumberEl.textContent = Math.floor(currentTime)
+}
+
+function getNextQuestionAndDisplay() {
+	// Clear choices already on the screen
+	questionListEl.textContent = ''
+	currentQuestionIndex++
+	if (currentQuestionIndex >= questionList.length) {
+		// No more questions
+		endGame()
+		return
+	}
+	var question = questionList[currentQuestionIndex]
+	// Set the title
+	questionTitleEl.textContent = question.title
+	// Create LIs for each choice
+	for (let i = 0; i < question.choices.length; i++) {
+		var newLi = document.createElement('li')
+		newLi.classList.add('btn-purple')
+		newLi.textContent = question.choices[i]
+		// Add event listener
+		newLi.addEventListener('click', function () {
+			// Check if li isn't the correct choice. If so reduce time.
+			if (i !== question.correctChoiceIndex) {
+				currentTime -= 10
+			}
+			getNextQuestionAndDisplay()
+		})
+		questionListEl.appendChild(newLi)
+	}
 }
