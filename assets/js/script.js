@@ -127,6 +127,10 @@ function getNextQuestionAndDisplay() {
 			// Check if li isn't the correct choice. If so reduce time.
 			if (i !== question.correctChoiceIndex) {
 				currentTime -= 10
+				// Dont let time become negative
+				if (currentTime < 0) {
+					currentTime = 0
+				}
 				wasAnswerCorrect(false)
 			} else {
 				wasAnswerCorrect(true)
