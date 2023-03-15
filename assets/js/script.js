@@ -55,7 +55,6 @@ startQuizBtnEl.addEventListener('click', function () {
 submitBtnEl.addEventListener('click', function () {
 	// Get initials
 	var initials = initialsInputEl.value.trim()
-	console.log(initials)
 	if (!initials) {
 		// No initials provided, don't submit
 		return
